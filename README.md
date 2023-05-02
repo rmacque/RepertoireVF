@@ -1,5 +1,5 @@
 # RepertoireVF
-site qui répertorie les voix françaises (principalement)
+site qui répertorie les voix françaises (principalement), créé avec symfony
 
 ### Spécificitées
 Site qui répertorie les comédiens avec les rôles qu'il/elle a pu faire si les différentes oeuvres doublées.
