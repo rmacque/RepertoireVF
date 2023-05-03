@@ -1,4 +1,4 @@
-# RepertoireVF
+# repertoireVF
 site qui répertorie les voix françaises (principalement), créé avec symfony
 
 ### Spécificitées
