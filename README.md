@@ -11,4 +11,4 @@ Il y aura également les oeuvres(nom, date de parution) qui ont pu être doublé
 Ces oeuvres seront catégorisées selon leur type (film, série, animation, jeu vidéo, livre audio, voix-off, publicité, ...)
 #### 
 L'administrateur pourra ajouter/éditer/supprimer toutes les entitées du sites (particulièrement utiles pour les comédiens non français,
-à utiliser avce précaution)
+à utiliser avec précaution)
