@@ -1,6 +1,6 @@
 # repertoireVF
 site qui répertorie les voix françaises (principalement), créé avec symfony
-
+inspiration: rsDoublage.com
 ## Spécificitées
 Site qui répertorie les comédiens avec les rôles qu'il/elle a pu faire dans le doublage.
 #### 
@@ -19,6 +19,7 @@ Un comédien peut être directeur artistique et diriger des versions françaises
 Dans ce cas, il pourra également répertorier les oeuvres qu'il a dirigées.
 Un directeur artistique peut participer au doublage d'une oeuvre, en plus de la direction.
 Une oeuvre peut être dirigée par plusieurs directeurs artistiques si elle requiert beacoup de comédiens(rare)
+les directions artistiques seront égalements affichées sur le profil du comédien. 
 #### 
 Il y aura également les oeuvres(nom, date de parution) qui ont pu être doublées (en français pour commencer)
 Ces oeuvres seront catégorisées selon leur type (film, série, animation, jeu vidéo, livre audio, voix-off, ...)
@@ -28,7 +29,9 @@ Un comédien peut doubler plusieurs personnages au sein d'une même oeuvre (asse
 #### 
 L'administrateur pourra ajouter/éditer/supprimer toutes les entitées du sites (particulièrement utiles pour les comédiens non français,
 à utiliser avec précaution)
-##Optionnel/Extension
--Pour chaque oeuvre, possibilité d'afficher au choix les comédiens de la version originale ou ceux de la version française
--Possibilité pour les directeurs artistiques d'enregistrer des oeuvres avant leur date de parution.
-Dans ce cas, la date de parution sera obligatoire. De plus, tant que cette date ne sera pas passée, l'oeuvre pré-enregistrée ne sera visible que par celui qui l'a publiée.
+## Optionnel/Extension
+#### 
+Pour chaque oeuvre, possibilité d'afficher au choix les comédiens de la version originale ou ceux de la version française
+####
+Possibilité pour les directeurs artistiques d'ajouter des oeuvres avant leur date de parution avec les comédiens qui constituent la VF.
+Dans ce cas, la date de parution sera OBLIGATOIRE. De plus, tant que cette date ne sera pas passée, l'oeuvre pré-enregistrée ne sera visible que par celui qui l'a publiée.
