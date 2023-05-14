@@ -13,9 +13,10 @@ publique: tout le monde peut le voir, même les visiteurs anonymes
 #####
 protégé: seul l'administrateur, le propriétaire, les comédiens et directeurs artistiques y ont accès
 #####
-privé: seul l'administarteur, le propriétaire et les directeurs artistiques ont y accès
+privé: seul l'administrateur, le propriétaire et les directeurs artistiques y ont accès
 ### 
-S'il est directeur artistique, il pourra également répertorier les oeuvres qu'il a dirigées.
+Un comédien peut être directeur artistique et diriger des versions françaises
+Dans ce cas, il pourra également répertorier les oeuvres qu'il a dirigées.
 Un directeur artistique peut participer au doublage d'une oeuvre, en plus de la direction.
 Une oeuvre peut être dirigée par plusieurs directeurs artistiques si elle requiert beacoup de comédiens(rare)
 #### 
