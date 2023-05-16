@@ -20,6 +20,10 @@ class Oeuvre
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $parution = null;
 
+    #[ORM\ManyToOne(inversedBy: 'listOeuvres')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Categorie $categorie = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +49,18 @@ class Oeuvre
     public function setParution(\DateTimeInterface $parution): self
     {
         $this->parution = $parution;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
