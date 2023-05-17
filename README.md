@@ -1,10 +1,10 @@
 # repertoireVF
-site qui répertorie les voix françaises (principalement), créé avec symfony
+site qui répertorie les voix françaises (principalement), créé avec symfony,
 inspiration: rsDoublage.com
 ## Spécificitées
 Site qui répertorie les comédiens avec les rôles qu'il/elle a pu faire dans le doublage.
 #### 
-Un comédien pourra se créer un compte(nom, prénom, est-il directeur artistique ?).
+Un comédien pourra se créer un compte(nom, photo, prénom, est-il directeur artistique ?).
 Il pourra répertorier les rôles qu'il a pu faire (par défaut, les rôles seront enregistrées pour la version française),
 ainsi que le moyen de le contacter (mail, tel) s'il le souhaite.
 Il pourra aussi décider si les moyens de le contacter sont publiques, protégés ou privés.
@@ -23,15 +23,14 @@ les directions artistiques seront égalements affichées sur le profil du coméd
 #### 
 Il y aura également les oeuvres(nom, date de parution) qui ont pu être doublées (en français pour commencer)
 Ces oeuvres seront catégorisées selon leur type (film, série, animation, jeu vidéo, livre audio, voix-off, ...)
-Certaines oeuvres n'ont pas de directeurs artistiques du fait qu'elles nécessitent très peu de comédiens.
+Certaines oeuvres n'ont pas de directeurs artistiques du fait qu'elles nécessitent très peu de comédiens(ex: livres audio).
 Une oeuvre ne peut pas appartenir à plusieurs catégories.
 Un comédien peut doubler plusieurs personnages au sein d'une même oeuvre (assez rare)
 #### 
-L'administrateur pourra ajouter/éditer/supprimer toutes les entitées du sites (particulièrement utiles pour les comédiens non français,
-à utiliser avec précaution)
+L'administrateur pourra ajouter/éditer/supprimer toutes les entitées du sites (à utiliser avec précaution)
 ## Optionnel/Extension
 #### 
-Pour chaque oeuvre, possibilité d'afficher au choix les comédiens de la version originale ou ceux de la version française
+Pour chaque oeuvre, possibilité d'afficher au choix les comédiens de la version originale ou ceux de la version française (les comédiens de la VO seront répertoriés sans compte)
 ####
 Possibilité pour les directeurs artistiques d'ajouter des oeuvres avant leur date de parution avec les comédiens qui constituent la VF.
-Dans ce cas, la date de parution sera OBLIGATOIRE. De plus, tant que cette date ne sera pas passée, l'oeuvre pré-enregistrée ne sera visible que par celui qui l'a publiée.
+Dans ce cas, la date de parution sera OBLIGATOIRE lors de l'enregistrement. De plus, tant que cette date ne sera pas passée, l'oeuvre pré-enregistrée ne sera visible que par celui qui l'a publiée.

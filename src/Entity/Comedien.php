@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ComedienRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ComedienRepository::class)]
@@ -21,6 +23,21 @@ class Comedien
 
     #[ORM\Column]
     private ?bool $DA = null;
+
+    #[ORM\ManyToMany(targetEntity: Oeuvre::class, mappedBy: 'listDa')]
+    private Collection $directionsArtistiques;
+
+    #[ORM\OneToMany(mappedBy: 'comedien', targetEntity: Jouer::class)]
+    private Collection $roles;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $photo = null;
+
+    public function __construct()
+    {
+        $this->directionsArtistiques = new ArrayCollection();
+        $this->roles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -59,6 +76,75 @@ class Comedien
     public function setDA(bool $DA): self
     {
         $this->DA = $DA;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Oeuvre>
+     */
+    public function getDirectionsArtistiques(): Collection
+    {
+        return $this->directionsArtistiques;
+    }
+
+    public function addDirectionsArtistique(Oeuvre $directionsArtistique): self
+    {
+        if (!$this->directionsArtistiques->contains($directionsArtistique)) {
+            $this->directionsArtistiques->add($directionsArtistique);
+            $directionsArtistique->addListDa($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDirectionsArtistique(Oeuvre $directionsArtistique): self
+    {
+        if ($this->directionsArtistiques->removeElement($directionsArtistique)) {
+            $directionsArtistique->removeListDa($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Jouer>
+     */
+    public function getRoles(): Collection
+    {
+        return $this->roles;
+    }
+
+    public function addRole(Jouer $role): self
+    {
+        if (!$this->roles->contains($role)) {
+            $this->roles->add($role);
+            $role->setComedien($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRole(Jouer $role): self
+    {
+        if ($this->roles->removeElement($role)) {
+            // set the owning side to null (unless already changed)
+            if ($role->getComedien() === $this) {
+                $role->setComedien(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
