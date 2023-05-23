@@ -8,6 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 #[ORM\Entity(repositoryClass: OeuvreRepository::class)]
 class Oeuvre
 {
@@ -17,6 +19,9 @@ class Oeuvre
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(
+        message:'{{label}} ne doit pas être vide'
+    )]
     private ?string $nom = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]

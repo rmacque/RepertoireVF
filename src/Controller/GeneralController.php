@@ -21,7 +21,7 @@ class GeneralController extends AbstractController
         $navbar = "<ul class=\"navbar\">";
         $navRoutes = [
             "Accueil" => "home",
-            "Comédiens" => "comedien",
+            "Comédiens" => "comedien_index",
             "Oeuvres" => "oeuvre_index",
             "Se connecter" => "administration",
         ];

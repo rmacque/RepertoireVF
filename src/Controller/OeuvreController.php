@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Oeuvre;
-use App\Form\Oeuvre1Type;
+use App\Form\OeuvreFormType;
 use App\Repository\OeuvreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,13 +25,14 @@ class OeuvreController extends AbstractController
     public function new(Request $request, OeuvreRepository $oeuvreRepository): Response
     {
         $oeuvre = new Oeuvre();
-        $form = $this->createForm(Oeuvre1Type::class, $oeuvre);
+        $form = $this->createForm(OeuvreFormType::class, $oeuvre);
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $oeuvreRepository->save($oeuvre, true);
 
-            return $this->redirectToRoute('app_oeuvre_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('oeuvre_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('oeuvre/new.html.twig', [
@@ -51,7 +52,7 @@ class OeuvreController extends AbstractController
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Oeuvre $oeuvre, OeuvreRepository $oeuvreRepository): Response
     {
-        $form = $this->createForm(Oeuvre1Type::class, $oeuvre);
+        $form = $this->createForm(OeuvreFormType::class, $oeuvre);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
