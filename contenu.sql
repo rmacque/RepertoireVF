@@ -1,0 +1,45 @@
+insert into categorie(nom) VALUES
+('film'),
+('série'),
+('jeu vidéo'),
+('livre audio'),
+('voix-off');
+
+insert into categorie(nom) VALUES
+('animation'),
+('série animée');
+
+insert into comedien(nom, prenom, da, photo) VALUES 
+('Saez', 'Marc', true, null), 
+('Souterelle', 'Frédéric', true, null), 
+('Nonenmacher', 'Marie', true, null), 
+('Reignoux', 'Donanld', true, null), 
+('Poivey', 'Patrick', false, null), 
+('Béthune', 'Patrick', false, null), 
+('Elias', 'Michel', false, null), 
+('Volpe', 'Isabelle', false, null), 
+('Diot', 'Marie', false, null), 
+('De Bodinat', 'Anatole', false, null), 
+('Ronchewski', 'Stéphane', false, null), 
+('Michael', 'Jean-Pierre', true, null), 
+('Atkine', 'Féodor', true, null),
+('Allemane', 'Benoît', false, null),
+('Luccioni', 'José', true, null),
+('Luccioni', 'Olivia', true, null),
+('Rehlinger', 'Boris', false, null),
+('Asselin', 'Géraldine', true, null),
+('Krüger', 'David', false, null),
+('Lebfevre', 'Läetitia', false, null),
+('Karsenti', 'Nathalie', false, null),
+('Victor', 'Alexis', false, null),
+('Teissier', 'Pierre', false, null),
+('Sourdive', 'Audrey', false, null),
+('Nguyen', 'Alexandre', false, null),
+('Le Minoux', 'Martial', true, null),
+('Covillaut', 'Jeremy', false, null),
+('Antoine', 'Adrien', false, null),
+('Morvan', 'Gilles', true, null),
+('Orsat', 'Guillaume', true, null),
+('Du Pac', 'Benoît', true, null),
+('Desroses', 'Thierry', false, null),
+('Donnadieu', 'Ingrid', true, null);
