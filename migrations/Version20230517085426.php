@@ -27,9 +27,6 @@ final class Version20230517085426 extends AbstractMigration
         $this->addSql('ALTER TABLE oeuvre_comedien ADD CONSTRAINT FK_1E3C195488194DE8 FOREIGN KEY (oeuvre_id) REFERENCES oeuvre (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE oeuvre_comedien ADD CONSTRAINT FK_1E3C1954F453844F FOREIGN KEY (comedien_id) REFERENCES comedien (id) ON DELETE CASCADE');
         $this->addSql('DROP TABLE role');
-        $this->addSql('ALTER TABLE oeuvre ADD categorie_id INT NOT NULL');
-        $this->addSql('ALTER TABLE oeuvre ADD CONSTRAINT FK_35FE2EFEBCF5E72D FOREIGN KEY (categorie_id) REFERENCES categorie (id)');
-        $this->addSql('CREATE INDEX IDX_35FE2EFEBCF5E72D ON oeuvre (categorie_id)');
     }
 
     public function down(Schema $schema): void
@@ -42,8 +39,5 @@ final class Version20230517085426 extends AbstractMigration
         $this->addSql('ALTER TABLE oeuvre_comedien DROP FOREIGN KEY FK_1E3C1954F453844F');
         $this->addSql('DROP TABLE jouer');
         $this->addSql('DROP TABLE oeuvre_comedien');
-        $this->addSql('ALTER TABLE oeuvre DROP FOREIGN KEY FK_35FE2EFEBCF5E72D');
-        $this->addSql('DROP INDEX IDX_35FE2EFEBCF5E72D ON oeuvre');
-        $this->addSql('ALTER TABLE oeuvre DROP categorie_id');
     }
 }

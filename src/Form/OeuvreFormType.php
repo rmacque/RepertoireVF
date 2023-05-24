@@ -43,16 +43,14 @@ class OeuvreFormType extends AbstractType
             ->add('listDa', EntityType::class, [
                 'label' => 'Direction',
                 'class' => Comedien::class,
-                //'choice_label' => 'nom',
-                'query_builder' => function(EntityRepository $er){
-                    return $er->createQuery(
-                        'SELECT prenom,nom
-                        FROM App\Entity\Comedien
-                        ORDER BY nom, ASC'
-                    );
+                'query_builder' => function (EntityRepository $er){
+                    return $er->createQueryBuilder('c')
+                        ->where('c.DA = 1')
+                        ->orderBy('c.nom', 'ASC');
                 },
+                'choice_label' => 'nom',
                 'multiple' => true,
-                'expanded' => false
+                'expanded' => true
             ])
         ;
     }

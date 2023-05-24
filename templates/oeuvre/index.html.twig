@@ -9,8 +9,8 @@
         <thead>
             <tr>
                 <th>Photo</th>
+                <th>Nom</th>
                 <th>Parution</th>
-                <th>Categorie</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,7 +19,7 @@
             <tr>
                 <td><img src="{{ oeuvre.photo }}"></td>
                 <td>{{ oeuvre.nom|capitalize }}</td>
-                <td>{{ oeuvre.categorie.nom|capitalize }} </td>
+                <td>{{ oeuvre.parution|format_datetime('short', 'none', locale='en') }}</td>
                 <td>
                     <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">show</a>
                     <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>

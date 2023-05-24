@@ -58,7 +58,7 @@ class OeuvreController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $oeuvreRepository->save($oeuvre, true);
 
-            return $this->redirectToRoute('app_oeuvre_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('oeuvre_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('oeuvre/edit.html.twig', [
