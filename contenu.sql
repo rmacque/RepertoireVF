@@ -3,9 +3,7 @@ insert into categorie(nom) VALUES
 ('série'),
 ('jeu vidéo'),
 ('livre audio'),
-('voix-off');
-
-insert into categorie(nom) VALUES
+('voix-off'),
 ('animation'),
 ('série animée');
 
@@ -13,7 +11,7 @@ insert into comedien(nom, prenom, da, photo) VALUES
 ('Saez', 'Marc', true, null), 
 ('Souterelle', 'Frédéric', true, null), 
 ('Nonenmacher', 'Marie', true, null), 
-('Reignoux', 'Donanld', true, null), 
+('Reignoux', 'Donald', true, null), 
 ('Poivey', 'Patrick', false, null), 
 ('Béthune', 'Patrick', false, null), 
 ('Elias', 'Michel', false, null), 
@@ -42,4 +40,23 @@ insert into comedien(nom, prenom, da, photo) VALUES
 ('Orsat', 'Guillaume', true, null),
 ('Du Pac', 'Benoît', true, null),
 ('Desroses', 'Thierry', false, null),
-('Donnadieu', 'Ingrid', true, null);
+('Donnadieu', 'Ingrid', false, null)
+('Pauwels', 'Jerôme', true, null),
+('Marot', 'Kelly', false, null),
+('Soarez', 'Clara', false, null),
+('Bloc', 'Fanny', false, null),
+('Levy', 'Gilbert', true, null),
+('Combes', 'Caroline', false, null),
+('Curtil', 'Emmanuel', false, null),
+('Tissier', 'Barbara', true, null),
+('De Guarrigues', 'Pierre-Alain', false, null),
+('Violette', 'Vincent', true, null),
+('Monsarrat', 'Céline', true, null),
+('Meyere', 'Bruno', true, null),
+('Gradi', 'Emmanuel', false, null),
+('Brière', 'Jean-Philippe', false, null),
+('Chetail', 'Adeline', false, null),
+('Beretta', 'Daniel', false, null),
+('Beretta', 'Barbara', false, null),
+('Degenne', 'Juliette', false, null),
+;
