@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GeneralController extends AbstractController
 {
-    #[Route('/', name: 'home')]
+    #[Route('/', name: 'acceuil')]
     public function index(): Response
     {
         return $this->render('general/index.html.twig', [
@@ -20,7 +20,7 @@ class GeneralController extends AbstractController
     {
         $navbar = "<ul class=\"navbar\">";
         $navRoutes = [
-            "Accueil" => "home",
+            "Accueil" => "acceuil",
             "Comédiens" => "comedien_index",
             "Oeuvres" => "oeuvre_index",
             "Se connecter" => "administration",

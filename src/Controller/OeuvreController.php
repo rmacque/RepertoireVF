@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Oeuvre;
 use App\Form\OeuvreFormType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Repository\OeuvreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,6 +54,11 @@ class OeuvreController extends AbstractController
     public function edit(Request $request, Oeuvre $oeuvre, OeuvreRepository $oeuvreRepository): Response
     {
         $form = $this->createForm(OeuvreFormType::class, $oeuvre);
+        /*
+        $form->add('tango', TextType::class, [
+            'mapped' => false
+        ]);
+        */
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

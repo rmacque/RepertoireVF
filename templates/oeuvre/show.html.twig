@@ -5,6 +5,7 @@
 {% block body %}
     <h1>{{ oeuvre.nom }}</h1>
     <img src="{{ oeuvre.photo }}">
+    <div>Parution : {{ oeuvre.parution|format_datetime('long', 'none', locale='en') }}</div>
     <div>Direction : 
     {% for da in oeuvre.listDA %}
         {{da.nom}} {{da.prenom}} 
@@ -17,7 +18,6 @@
             </tr>
             {% for role in oeuvre.roles %}
             <tr>
-                <td>{{ dump(role) }}</td>
                 <td>{{ role.role }}</td>
                 <td>
                 {% if role.VF %}
@@ -33,9 +33,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('oeuvre_index') }}">back to list</a>
+    <div><a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a></div>
 
-    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
-
+    <div><a href="{{ path('oeuvre_index') }}">back to list</a></div>
+    
     {{ include('oeuvre/_delete_form.html.twig') }}
 {% endblock %}

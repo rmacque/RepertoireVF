@@ -5,10 +5,12 @@ namespace App\Form;
 use App\Entity\Oeuvre;
 use App\Entity\Categorie;
 use App\Entity\Comedien;
+use App\Entity\Jouer;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -31,19 +33,19 @@ class OeuvreFormType extends AbstractType
             ],
             'mimeTypesMessage' => 'Please upload a valid PDF document'
           ])
-      ]
+        ]
       ])
       ->add('nom')
       ->add('parution')
       ->add('categorie', EntityType::class, [
-                'label' => 'appartenance',
-                'class' => Categorie::class,
-                'choice_label' => 'nom',
-                'multiple' => false,
-                'expanded' => true
-    ])
+        'label' => 'Appartenance :',
+        'class' => Categorie::class,
+        'choice_label' => 'nom',
+        'multiple' => false,
+        'expanded' => true
+      ])
       ->add('listDa', EntityType::class, [
-        'label' => 'Direction',
+        'label' => 'Direction :',
         'class' => Comedien::class,
         'query_builder' => function (EntityRepository $er){
           return $er->createQueryBuilder('c')
@@ -54,6 +56,24 @@ class OeuvreFormType extends AbstractType
         'multiple' => true,
         'expanded' => true
       ])
+      ->add('roles', CollectionType::class, [
+        'entry_type' => JouerFormType::class,
+        'entry_options' => ['label' => false]
+      ])
+      /*
+      ->add('roles', EntityType::class, [
+        'label' => 'Distribution :',
+        'class' => Jouer::class,
+        'query_builder' => function (EntityRepository $er){
+          return $er->createQueryBuilder('j')
+          ->where('j.oeuvre = :id')
+          ->setParameter('id', 1);
+        },
+        'choice_label' => 'role',
+        'multiple' => true,
+        'expanded' => true
+      ])
+      */
     ;
   }
 

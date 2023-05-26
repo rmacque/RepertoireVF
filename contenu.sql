@@ -5,7 +5,8 @@ insert into categorie(nom) VALUES
 ('livre audio'),
 ('voix-off'),
 ('animation'),
-('série animée');
+('série animée')
+;
 
 insert into comedien(nom, prenom, da, photo) VALUES 
 ('Saez', 'Marc', true, null), 
@@ -58,5 +59,8 @@ insert into comedien(nom, prenom, da, photo) VALUES
 ('Chetail', 'Adeline', false, null),
 ('Beretta', 'Daniel', false, null),
 ('Beretta', 'Barbara', false, null),
-('Degenne', 'Juliette', false, null),
+('Dégenne', 'Juliette', false, null),
+('Borne', 'Paul', false, null),
+('Peythieu', 'Philippe', true, null),
+('Augereau', 'Véronique', true, null)
 ;
