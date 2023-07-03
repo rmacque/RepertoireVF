@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admonistration', name: 'administration')]
+#[Route('/administration', name: 'administration')]
 class AdministrationController extends AbstractController
 {
     #[Route('', name: '')]
@@ -22,9 +22,9 @@ class AdministrationController extends AbstractController
         ->getForm();
 
 
-        return $this->render('administration/index.html.twig', [
+        return $this->renderForm('administration/index.html.twig', [
             'controller_name' => 'AdministrationController',
-            'form' => $form->createView(),
+            'form' => $form,
         ]);
     }
 }
