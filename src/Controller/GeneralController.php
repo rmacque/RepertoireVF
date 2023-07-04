@@ -23,7 +23,7 @@ class GeneralController extends AbstractController
             "Accueil" => "acceuil",
             "Comédiens" => "comedien_index",
             "Oeuvres" => "oeuvre_index",
-            "Se connecter" => "administration",
+            "Se connecter" => "register",
         ];
         foreach($navRoutes as $nomRoute => $route){
             $navbar .= "<li><a href=".$this->generateUrl($route).">$nomRoute</a></li>";
