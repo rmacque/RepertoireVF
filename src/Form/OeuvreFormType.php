@@ -58,7 +58,9 @@ class OeuvreFormType extends AbstractType
       ])
       ->add('roles', CollectionType::class, [
         'entry_type' => JouerFormType::class,
-        'entry_options' => ['label' => false]
+        'entry_options' => [
+          'label' => 'Roles :'
+          ]
       ])
       /*
       ->add('roles', EntityType::class, [
