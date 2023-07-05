@@ -51,7 +51,6 @@ class OeuvreFormType extends AbstractType
         'label' => 'Direction :',
         'class' => Comedien::class,
         'query_builder' => function (EntityRepository $er){
-          
           return $er->createQueryBuilder('c')
             //->select()
             ->where('c.DA = 1')

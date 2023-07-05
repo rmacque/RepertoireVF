@@ -5,10 +5,45 @@
     {{ form_row(form.nom) }}
     {{ form_row(form.parution) }}
     {{ form_row(form.listDa) }}
-    {{ form_row(form.roles) }}
+    {#{ form_row(form.roles) }#}
+    {{ form_label(form.roles) }}
+    <ul class="tags"
+      data-index="{{ form.roles|length > 0 ? form.tags|last.roles.name + 1 : 0 }}"
+      data-prototype="{{ form_widget(form.roles.vars.prototype)|e('html_attr') }}"
+    ></ul>
+
+    <button type="button" class="add_item_link" data-collection-holder-class="tags">Ajouter un rôle</button>
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 
+<script>
+const addFormToCollection = (e) => {
+  const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+  const item = document.createElement('li');
+
+  item.innerHTML = collectionHolder
+    .dataset
+    .prototype
+    .replace(
+      /__name__/g,
+      collectionHolder.dataset.index
+    );
+
+  collectionHolder.appendChild(item);
+
+  collectionHolder.dataset.index++;
+};
+
+document
+  .querySelectorAll('.add_item_link')
+  .forEach(btn => {
+    btn.addEventListener("click", addFormToCollection)
+  });
+
+
+</script>
+{#
 <table>
     <thead>
         <tr>
@@ -23,40 +58,4 @@
     <tbody>
     </tbody>
 </table>
-
-{#
-<table>
-    <thead>
-        <tr>
-            <td>Item</td>
-            <td>Priority</td>
-        </tr>
-    </thead>
-    <tbody>
-        {% for key, itemForm in form.todoItems %}
-            <tr>
-                <td>
-                    {{ form_row(itemForm.description, {
-                        label: false,
-                        attr: {
-                            placeholder: 'Walk the pygmy hippo'
-                        }
-                    }) }}
-                </td>
-
-                <td>
-                    {{ form_row(itemForm.priority, {
-                        row_attr: {class: ''},
-                        label: false,
-                    }) }}
-                </td>
-                <td>
-                    {{ form_row(itemForm.vars.button_delete, { label: 'X' }) }}
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-{{ form_widget(form.todoItems.vars.button_add, { label: '+ Add Item' }) }}
 #}

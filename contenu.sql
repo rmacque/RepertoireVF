@@ -8,6 +8,13 @@ insert into categorie(nom) VALUES
 ('série animée')
 ;
 
+insert into oeuvre(nom, parution, photo, categorie_id) VALUES
+('Resident Evil 4 Remake', '2023-03-06', null, 3),
+('Game of thrones', '2023-03-06', null, 2),
+('LadyBug', '2020-01-06', null, 7),
+('Mario Bros Le Film', '2023-04-06', null, 6)
+;
+
 insert into comedien(nom, prenom, da, photo) VALUES 
 ('Saez', 'Marc', true, null), 
 ('Souterelle', 'Frédéric', true, null), 
@@ -41,7 +48,7 @@ insert into comedien(nom, prenom, da, photo) VALUES
 ('Orsat', 'Guillaume', true, null),
 ('Du Pac', 'Benoît', true, null),
 ('Desroses', 'Thierry', false, null),
-('Donnadieu', 'Ingrid', false, null)
+('Donnadieu', 'Ingrid', false, null),
 ('Pauwels', 'Jerôme', true, null),
 ('Marot', 'Kelly', false, null),
 ('Soarez', 'Clara', false, null),
