@@ -39,6 +39,19 @@ class ComedienRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @return Comedien[] Returns an array of Comedien objects
+     */
+    public function findLastEntries(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.id', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Comedien[] Returns an array of Comedien objects
 //     */

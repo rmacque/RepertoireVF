@@ -42,7 +42,7 @@ security:
     access_control:
         #- { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/directeur_artistique, roles: ROLE_DIRECTEUR_ARTISTIQUE }
-        - { path: ^/comedien, roles: ROLE_COMEDIEN }
+        #- { path: ^/comedien, roles: ROLE_COMEDIEN }
         # - { path: ^/profile, roles: ROLE_USER }
 
     role_hierarchy:

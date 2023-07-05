@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ComedienRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,10 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class GeneralController extends AbstractController
 {
     #[Route('/', name: 'acceuil')]
-    public function index(): Response
+    public function index(ComedienRepository $comedienRepository): Response
     {
+        $comediens = $comedienRepository->findLastEntries();
         return $this->render('general/index.html.twig', [
             'controller_name' => 'GeneralController',
+            'comediens' => $comediens,
         ]);
     }
 
@@ -23,7 +26,7 @@ class GeneralController extends AbstractController
             "Accueil" => "acceuil",
             "Comédiens" => "comedien_index",
             "Oeuvres" => "oeuvre_index",
-            "Se connecter" => "register",
+            "Se connecter" => "app_login",
         ];
         foreach($navRoutes as $nomRoute => $route){
             $navbar .= "<li><a href=".$this->generateUrl($route).">$nomRoute</a></li>";

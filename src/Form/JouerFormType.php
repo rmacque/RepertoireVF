@@ -3,9 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Jouer;
+use App\Entity\Oeuvre;
+use App\Entity\Comedien;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class JouerFormType extends AbstractType
 {
@@ -15,8 +18,16 @@ class JouerFormType extends AbstractType
             ->add('role')
             ->add('VF')
             ->add('VO')
-            ->add('oeuvre')
-            ->add('comedien')
+            /*
+            ->add('oeuvre', EntityType::class, [
+                'class' => Oeuvre::class,
+                'label' => 'Comedien :',
+            ])
+            ->add('comedien', EntityType::class, [
+                'class' => Comedien::class,
+                'label' => 'Comedien :',
+            ])
+            */
         ;
     }
 

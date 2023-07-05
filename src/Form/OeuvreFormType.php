@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -35,8 +36,6 @@ class OeuvreFormType extends AbstractType
           ])
         ]
       ])
-      ->add('nom')
-      ->add('parution')
       ->add('categorie', EntityType::class, [
         'label' => 'Appartenance :',
         'class' => Categorie::class,
@@ -44,23 +43,32 @@ class OeuvreFormType extends AbstractType
         'multiple' => false,
         'expanded' => true
       ])
+      ->add('nom', TextType::class, [
+        'label' => 'Nom :'
+      ])
+      ->add('parution')
       ->add('listDa', EntityType::class, [
         'label' => 'Direction :',
         'class' => Comedien::class,
         'query_builder' => function (EntityRepository $er){
+          
           return $er->createQueryBuilder('c')
+            //->select()
             ->where('c.DA = 1')
-            ->orderBy('c.nom', 'ASC');
+            ->orderBy('c.nom');
         },
         'choice_label' => 'nom',
         'multiple' => true,
-        'expanded' => true
+        'expanded' => false
       ])
       ->add('roles', CollectionType::class, [
         'entry_type' => JouerFormType::class,
         'entry_options' => [
-          'label' => 'Roles :'
-          ]
+          'label' => false
+        ],
+        'label' => 'Roles : ',
+        'allow_add' => true,
+        'allow_delete' => true,
       ])
       /*
       ->add('roles', EntityType::class, [

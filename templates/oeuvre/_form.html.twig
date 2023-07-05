@@ -1,4 +1,62 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {#{ form_widget(form) }#}
+    {{ form_row(form.photo) }}
+    {{ form_row(form.categorie) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.parution) }}
+    {{ form_row(form.listDa) }}
+    {{ form_row(form.roles) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
+
+<table>
+    <thead>
+        <tr>
+            <th>aaa</th>
+            <th>bbb</th>
+            <th>ccc</th>
+            <th>ddd</th>
+            <th>eee</th>
+            <th>fff</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+{#
+<table>
+    <thead>
+        <tr>
+            <td>Item</td>
+            <td>Priority</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for key, itemForm in form.todoItems %}
+            <tr>
+                <td>
+                    {{ form_row(itemForm.description, {
+                        label: false,
+                        attr: {
+                            placeholder: 'Walk the pygmy hippo'
+                        }
+                    }) }}
+                </td>
+
+                <td>
+                    {{ form_row(itemForm.priority, {
+                        row_attr: {class: ''},
+                        label: false,
+                    }) }}
+                </td>
+                <td>
+                    {{ form_row(itemForm.vars.button_delete, { label: 'X' }) }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{{ form_widget(form.todoItems.vars.button_add, { label: '+ Add Item' }) }}
+#}
