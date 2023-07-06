@@ -19,7 +19,7 @@ class JouerFormType extends AbstractType
         $builder
             ->add('role', TextType::class, [
               'label' => 'Nom : ' 
-            ])
+            ])/*
             ->add('VF', ChoiceType::class, [
               'label' => 'VF',
               'choices' => ['Oui' => true, 'Non' => false],
@@ -29,12 +29,13 @@ class JouerFormType extends AbstractType
               'label' => 'VO',
               'choices' => ['Oui' => true, 'Non' => false],
               'expanded' => true,
-            ])
+            ])*/
             /*
             ->add('oeuvre', EntityType::class, [
                 'class' => Oeuvre::class,
                 'label' => 'Comedien :',
             ])
+            *//*
             ->add('comedien', EntityType::class, [
                 'class' => Comedien::class,
                 'label' => 'Comedien :',
