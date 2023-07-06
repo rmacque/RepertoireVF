@@ -8,10 +8,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ comedien.id }}</td>
-            </tr>
-            <tr>
                 <th>Nom</th>
                 <td>{{ comedien.nom }}</td>
             </tr>
@@ -21,7 +17,7 @@
             </tr>
             <tr>
                 <th>DA</th>
-                <td>{{ comedien.DA ? 'Yes' : 'No' }}</td>
+                <td>{{ comedien.DA ? 'Oui' : 'Non' }}</td>
             </tr>
             <tr>
                 <th>Photo</th>
@@ -30,6 +26,19 @@
         </tbody>
     </table>
 
+    {{ dump(roles) }}
+
+    <table>
+        <tbody>
+        {#% for role in roles %}
+            <tr>
+                <td>{{ role.nom }}</td>
+                <td>{{ role.oeuvre.nom }}</td>
+            </tr>
+        {% else %}
+        {% endfor %#}
+        </tbody>
+    </table>
     <a href="{{ path('comedien_index') }}">back to list</a>
 
     <a href="{{ path('comedien_edit', {'id': comedien.id}) }}">edit</a>

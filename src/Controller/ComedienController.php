@@ -13,11 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/comedien', name:'comedien_')]
 class ComedienController extends AbstractController
 {
-    #[Route('/', name: 'index', methods: ['GET'])]
-    public function index(ComedienRepository $comedienRepository): Response
+    #[Route('/l={lettre}', name: 'index', methods: ['GET'])]
+    public function index(ComedienRepository $comedienRepository, string $lettre = "a"): Response
     {
         return $this->render('comedien/index.html.twig', [
-            'comediens' => $comedienRepository->findAll(),
+            'comediens' => $comedienRepository->findByLettre($lettre.'%'),
         ]);
     }
 
@@ -43,8 +43,10 @@ class ComedienController extends AbstractController
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(Comedien $comedien): Response
     {
+        
         return $this->render('comedien/show.html.twig', [
             'comedien' => $comedien,
+            'roles' => $comedien->getRoles(),
         ]);
     }
 

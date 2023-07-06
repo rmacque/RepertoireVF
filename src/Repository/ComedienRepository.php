@@ -52,6 +52,26 @@ class ComedienRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findById(int $id): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id = :val')
+            ->setParameter('val', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByLettre(string $value): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.nom LIKE :val')
+            ->setParameter('val', $value)
+            ->orderBy('c.nom', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 //    /**
 //     * @return Comedien[] Returns an array of Comedien objects
 //     */

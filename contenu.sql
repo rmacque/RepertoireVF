@@ -12,7 +12,24 @@ insert into oeuvre(nom, parution, photo, categorie_id) VALUES
 ('Resident Evil 4 Remake', '2023-03-06', null, 3),
 ('Game of thrones', '2023-03-06', null, 2),
 ('LadyBug', '2020-01-06', null, 7),
-('Mario Bros Le Film', '2023-04-06', null, 6)
+('Mario Bros Le Film', '2023-04-06', null, 6),
+('Pirates des Caraïbes', '2018-03-06', null, 1),
+('Roi Lion', '1998-11-24', null, 6),
+('Aladdin', '1998-03-06', null, 6)
+;
+
+insert into jouer(oeuvre_id, comedien_id, role, vf, vo) VALUES
+(1, 10, 'Leon S Kennedy', true, false),
+(1, 3, 'Ashley Graham', true, false),
+(1, 11, 'Salazar', true, false),
+(4, 23, 'Mario', true, false),
+(4, 24, 'Peach', true, false),
+(4, 31, 'Luigi', true, false),
+--(4, 27, Bowser, true, false),
+(6, 40, 'Simba Adulte', true, false),
+(6, 7, 'Pumba', true, false),
+(7, 7, 'Caverne en Merveilles', true, false),
+(7, 13, 'Jafar', true, false)
 ;
 
 insert into comedien(nom, prenom, da, photo) VALUES 
