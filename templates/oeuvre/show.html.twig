@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>{{ oeuvre.nom }}</h1>
-    <img src="{{ oeuvre.photo }}">
+    <img src="{{ oeuvre.photo }}" alt="">
     <div>Parution : {{ oeuvre.parution|format_datetime('long', 'none', locale='en') }}</div>
     <div>Direction : 
     {% for da in oeuvre.listDA %}

@@ -17,6 +17,13 @@
         {% block nav %}
         <nav>
           {{ render(controller("App\\Controller\\GeneralController::navbarCreate")) }}
+          <li>
+          {% if is_granted('ROLE_COMEDIEN') %}
+            <a href=" {{ path('app_logout') }} ">Déconnexion</a>
+          {% else %}
+            <a href=" {{ path('app_login') }} ">Connexion</a>
+          {% endif %}
+          </li>
         </nav>
         {% endblock %}
         {% block body %}{% endblock %}

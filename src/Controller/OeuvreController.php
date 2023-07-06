@@ -73,6 +73,7 @@ class OeuvreController extends AbstractController
         return $this->renderForm('oeuvre/edit.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form,
+            'data' => "",
         ]);
     }
 

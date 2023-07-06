@@ -16,7 +16,9 @@
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 
-{{ dump(data) }}
+{% if data is not empty %}
+  {{ dump(data) }}
+{% endif %}
 <script>
 const addFormToCollection = (e) => {
   const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
