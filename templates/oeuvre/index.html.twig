@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Oeuvre index{% endblock %}
+{% block title %}Oeuvres index{% endblock %}
 
 {% block body %}
-    <h1>Oeuvre index</h1>
+    <h1>Toutes les oeuvres</h1>
 
     <table class="table">
         <thead>
@@ -22,16 +22,20 @@
                 <td>{{ oeuvre.parution|format_datetime('short', 'none', locale='en') }}</td>
                 <td>
                     <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">show</a>
-                    <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
+                    {% if is_granted('ROLE_DIRECTEUR_ARTISTIQUE')%}
+                      <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune oeuvre enregistrée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('oeuvre_new') }}">Create new</a>
+    {% if is_granted('ROLE_DIRECTEUR_ARTISTIQUE')%}
+    <a href="{{ path('oeuvre_new') }}">Nouvelle oeuvre</a>
+    {% endif %}
 {% endblock %}

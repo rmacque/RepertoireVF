@@ -12,8 +12,9 @@ security:
             memory:
                 users:
                     #admin: { password: '$2y$13$5KVsuUy66J7IL257B2WioexCQ80gago3r15dgtBU/ue/I0g.DAk4m', roles:['ROLE_ADMIN'] }
-                    admin@admin.fr: { password: '$2y$13$4qw8NtRfYPZDjPCCc9TToeABK7vZXTCmbBILxQrmDHf3itupOpUsW', roles:['ROLE_ADMIN'] }
-                    user : { password: 'user', roles:['ROLE_COMEDIEN'] }
+                    admin@admin.fr: { password: '$2y$13$4qw8NtRfYPZDjPCCc9TToeABK7vZXTCmbBILxQrmDHf3itupOpUsW', roles:['ROLE_ADMIN'] } #passwd:'admin'
+                    da@da.fr: { password: '$2y$13$vJxpJhqVuX615ps.kk4UROkjVuP5DaOaPBBjBuPqKCjkdVqm1/ip.', roles:['ROLE_DIRECTEUR_ARTISTIQUE'] } #passwd:'da'
+                    com@com.fr : { password: '$2y$13$HNF1GgydE7f/7D20u8MOhOy0hWBU1.zWYx418Gx33S6n/PsY47eXO', roles:['ROLE_COMEDIEN'] } #passwd:'com'
         #app_user_provider:
             #entity:
                 #class: App\Entity\User
@@ -42,8 +43,10 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         #- { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/directeur_artistique, roles: ROLE_DIRECTEUR_ARTISTIQUE }
-        #- { path: ^/comedien, roles: ROLE_COMEDIEN }
+        - { path: ^/oeuvre/new, roles: ROLE_DIRECTEUR_ARTISTIQUE }
+        - { path: ^/oeuvre/[0-10000]/edit, roles: ROLE_DIRECTEUR_ARTISTIQUE }
+        - { path: ^/comedien/new, roles: ROLE_ADMIN }
+        - { path: ^/comedien/[0-10000]/edit, roles: ROLE_COMEDIEN }
         # - { path: ^/profile, roles: ROLE_USER }
 
     role_hierarchy:

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Comedien index{% endblock %}
+{% block title %}Liste Comédien{% endblock %}
 
 {% block body %}
-    <h1>Comedien index</h1>
+    <h1>Comédiens</h1>
 
     {% for letter in 'a'|upper..'z'|upper %}
         <a href="{{ path('comedien_index', {'lettre': letter }) }}">{{ letter }}</a>
@@ -13,8 +13,7 @@
             <tr>
                 <th>Photo</th>
                 <th>Nom</th>
-                <th>Prenom</th>
-                <th>actions</th>
+                <th>Prénom</th>
             </tr>
         </thead>
         <tbody>
@@ -24,17 +23,21 @@
                 <td>{{ comedien.nom }}</td>
                 <td>{{ comedien.prenom }}</td>
                 <td>
-                    <a href="{{ path('comedien_show', {'id': comedien.id}) }}">show</a>
-                    <a href="{{ path('comedien_edit', {'id': comedien.id}) }}">edit</a>
+                    <a href="{{ path('comedien_show', {'id': comedien.id}) }}">Détails</a>
+                    {% if is_granted('ROLE_COMEDIEN') %}
+                    <a href="{{ path('comedien_edit', {'id': comedien.id}) }}">Editer</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">aucun comédien enregistré</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('comedien_new') }}">Create new</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('comedien_new') }}">Nouveau Comédien</a>
+    {% endif %}
 {% endblock %}

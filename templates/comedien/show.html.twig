@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Comedien{% endblock %}
+{% block title %}Comédien{% endblock %}
 
 {% block body %}
-    <h1>Comedien</h1>
+    <h1>Comédien</h1>
 
     <table class="table">
         <tbody>
@@ -16,17 +16,23 @@
                 <td>{{ comedien.prenom }}</td>
             </tr>
             <tr>
-                <th>DA</th>
+                <th>Directeur Artistique</th>
                 <td>{{ comedien.DA ? 'Oui' : 'Non' }}</td>
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ comedien.photo }}</td>
+                <td><img 
+                {% if comedien.photo is empty  %}
+                  src=""
+                {% else %}
+                  src="{{ comedien.photo }}"
+                {% endif %}
+                ></td>
             </tr>
         </tbody>
     </table>
 
-    {{ dump(roles) }}
+    {#{ dump(roles) }#}
 
     <table>
         <tbody>
@@ -39,9 +45,9 @@
         {% endfor %#}
         </tbody>
     </table>
-    <a href="{{ path('comedien_index') }}">back to list</a>
+    <a href="{{ path('comedien_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('comedien_edit', {'id': comedien.id}) }}">edit</a>
+    <a href="{{ path('comedien_edit', {'id': comedien.id}) }}">Editer</a>
 
     {{ include('comedien/_delete_form.html.twig') }}
 {% endblock %}

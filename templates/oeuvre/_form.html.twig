@@ -13,7 +13,9 @@
     ></ul>
 
     <button type="button" class="add_item_link" data-collection-holder-class="tags">Ajouter un rôle</button>
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {% if is_granted('ROLE_DIRECTEUR_ARTISTIQUE') %}
+      <button class="btn">{{ button_label|default('Save') }}</button>
+    {% endif %}
 {{ form_end(form) }}
 
 {% if data is not empty %}

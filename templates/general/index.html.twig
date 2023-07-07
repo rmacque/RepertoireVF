@@ -9,15 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/perso(github)/siteDoublage/src/Controller/GeneralController.php'|file_link(0) }}">src/Controller/GeneralController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/perso(github)/siteDoublage/templates/general/index.html.twig'|file_link(0) }}">templates/general/index.html.twig</a></code></li>
-    </ul>
-
-    <h3>Les derniers comédiens :</h3>
+    <h1>Les derniers comédiens :</h1>
     {% for comedien in comediens %}
         <a href={{ path('comedien_show', {id : comedien.id}) }}>{{ comedien.prenom }} {{ comedien.nom }}</a>
     {% endfor %}
