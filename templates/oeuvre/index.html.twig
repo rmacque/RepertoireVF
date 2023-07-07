@@ -21,9 +21,9 @@
                 <td>{{ oeuvre.nom|capitalize }}</td>
                 <td>{{ oeuvre.parution|format_datetime('short', 'none', locale='en') }}</td>
                 <td>
-                    <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">show</a>
+                    <a href="{{ path('oeuvre_show', {'id': oeuvre.id}) }}">Details</a>
                     {% if is_granted('ROLE_DIRECTEUR_ARTISTIQUE')%}
-                      <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">edit</a>
+                      <a href="{{ path('oeuvre_edit', {'id': oeuvre.id}) }}">Editer</a>
                     {% endif %}
                 </td>
             </tr>
